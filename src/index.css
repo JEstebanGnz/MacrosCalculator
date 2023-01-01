@@ -1,0 +1,112 @@
+:root{
+  --primaryColor: rgb(33, 101, 218);
+  --secondaryColor: aliceblue;
+}
+
+*{
+
+  text-decoration: none;
+  color: var(--secondaryColor);
+
+}
+
+body {
+  
+  font-family: 'Montserrat';  
+  background-color: var(--primaryColor);
+  font-size: 0.9em;
+  overflow-x: hidden;
+  
+}
+
+.home{
+
+  height: 50%;
+  margin-top: 40%;
+
+}
+
+.home *{
+
+  text-align: center;
+
+}
+
+.home p {
+ 
+  margin-top: 50px;
+  font-size: 1.5em;
+}
+
+button{
+
+  color: aliceblue;
+  display: block;
+  margin: 30px auto;
+  font-size: 1.5em;
+  padding: 10px;
+  border-radius: 22px;
+  background-color: rgb(205, 42, 254);
+  border: 2px solid rgb(205, 42, 254);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.navbar {
+  
+  display: flex;
+  align-items: center;
+
+}
+
+.navbar h1{
+
+  margin-left: 15px;
+
+}
+
+.navbar .links{
+
+  margin-left: auto;
+ 
+  
+}
+
+.navbar .links *{
+
+  margin-left: 30px;
+ 
+  
+}
+
+.myform{
+
+  margin: 20px auto;
+  width: 50%;
+  overflow-x: hidden;
+  
+
+}
+
+
+.myform *{
+
+  display:block;
+  margin-top: 15px;
+  font-size: 1.4em;
+ 
+}
+
+.myform input, select{
+
+  color: black;
+  
+
+}
+
+.myform input{
+
+  width: 30%;
+  
+
+}
