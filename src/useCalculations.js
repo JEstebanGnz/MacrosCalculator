@@ -15,13 +15,13 @@ const UseCalculations = (sexo, edad, altura, peso, porcentaje, objetivo,nivel, e
 
     if (sexo == 'hombre') {
 
-        bmr = (10 * peso) + (6.25 * altura) - (5 * edad) + 5;
+        bmr = 10 * peso + 6.25 * altura - 5 * edad + 5;
 
     }
 
     else{
 
-        bmr = (10 * peso) + (6.25 * altura) - (5 * edad) - 161;
+        bmr = 10 * peso + 6.25 * altura - 5 * edad - 161;
 
     }
 
