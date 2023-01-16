@@ -1,10 +1,12 @@
+
+
 :root{
-  --primaryColor: rgb(33, 101, 218);
+  --primaryColor: rgb(48, 22, 179);
   --secondaryColor: aliceblue;
 }
 
 *{
-
+  font-family:'Trebuchet MS';
   text-decoration: none;
   color: var(--secondaryColor);
 
@@ -12,17 +14,24 @@
 
 body {
   
-  font-family: 'Montserrat';  
+   
   background-color: var(--primaryColor);
   font-size: 0.9em;
   overflow-x: hidden;
   
 }
 
-.home{
+.welcomeMessage{
 
-  height: 50%;
-  margin-top: 40%;
+  padding: 2px 20px 2px 20px;
+
+}
+
+.welcomeMessage img{
+
+width: 40%;
+  
+
 
 }
 
@@ -40,22 +49,43 @@ body {
 
 button{
 
-  color: aliceblue;
+  color: rgb(0, 0, 0);
   display: block;
   margin: 30px auto;
   font-size: 1.5em;
-  padding: 10px;
-  border-radius: 22px;
-  background-color: rgb(205, 42, 254);
-  border: 2px solid rgb(205, 42, 254);
+  padding: 3px 10px;
+  background-color: rgb(250, 254, 42);
+  border: 2px solid rgb(247, 254, 42);
   cursor: pointer;
   text-decoration: none;
 }
 
+.justification{
+
+margin-top: 150px; 
+background-color: rgba(32, 5, 57, 0.163);
+padding: 0.1px 20px 10px 20px;
+}
+
+.justification img{
+
+  width: 40%;
+
+}
+
+
+.areYouReady{
+
+
+  margin-top: 95px;
+
+
+}
 .navbar {
   
   display: flex;
   align-items: center;
+  background-color: rgba(71, 37, 241, 0.177);;
 
 }
 
@@ -82,7 +112,7 @@ button{
 .myform{
 
   margin: 20px auto;
-  width: 50%;
+  width: 70%;
   overflow-x: hidden;
   
 
@@ -107,6 +137,142 @@ button{
 .myform input{
 
   width: 30%;
+  border: 2px solid rgb(121, 11, 217);
+  border-radius: 10px;
+}
+
+select {
+ 
+  background: rgb(255, 255, 255);
+  color: #000;
+  border: 2px solid rgb(121, 11, 217);
+  border-radius: 10px;
   
+
+}
+
+.myform option{
+
+  font-size: 0.8em;
+
+}
+
+option:not(:checked) {
+  background-color: rgb(255, 255, 255);
+  color: #000;
+}
+
+.results{
+  
+  padding:  20px;
+
+}
+
+.presentation h1{
+
+  text-align: center;
+}
+
+.resultsInfo{
+  margin-top: 50px;
+}
+
+.resultsInfo *{
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.calories img{
+
+  margin: 30px auto;
+
+}
+
+.Footer{
+
+  margin-top: 200px;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  background-color: rgba(71, 37, 241, 0.177);;
+  padding: 0px 10px 0px 10px;
+
+}
+
+.Footer p{
+
+  grid-column: 1/4;
+  font-size: 0.9em;
+ 
+
+}
+
+.background{
+
+  width: 250%;
+  grid-column: 5/6;
+  align-self: center;
+  display: flex;
+  padding: 0px 0px;
+}
+
+.Footer ul{
+
+  grid-column: 8/9;
+  gap: 15px;
+  display: flex;
+
+}
+
+.Footer a{
+
+  align-self: center;
+}
+
+.consultButton{
+
+  color: rgb(0, 0, 0);
+  display: block;
+  margin: 75px auto;
+  font-size: 1.5em;
+  padding: 3px 10px;
+  border-radius: 22px;
+  background-color: rgb(250, 254, 42);
+  border: 2px solid rgb(247, 254, 42);
+  cursor: pointer;
+  text-decoration: none;
+
+}
+
+.masInfo{
+
+  display: inline;
+  margin-left: 70px;
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+  padding: 1px 2px;
+  background-color: rgb(250, 254, 42);
+  cursor: pointer;
+  text-decoration: none;
+
+}
+
+.mensaje{
+
+  display:none;
+
+}
+
+.masInfo:hover + .mensaje {
+  color: #000;
+  display: block;
+  background-color: rgb(249, 241, 1);
+  border-radius: 10px;
+  padding: 7px 5px;
+  font-size: 1.2em;
+}
+
+.helpSelection{
+
+  display: inline;
 
 }

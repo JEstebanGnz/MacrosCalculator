@@ -1,41 +1,39 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import UseCalculations from "./useCalculations";
 import { useNavigate } from "react-router-dom/dist";
 import Results from "./Results";
 
 const Form = () => {
 
-    const [sexo, setSexo] = useState('mujer');
+    const [sexo, setSexo] = useState();
     const [edad, setEdad] = useState('');
     const [altura, setAltura] = useState('');
     const [peso, setPeso] = useState('');
     const [porcentaje, setPorcentaje] = useState('');
-    const [objetivo, setObjetivo] = useState('perder');
-    const [nivel, setNivel] = useState('sed');
-    const [exp, setExp] = useState('beginner');
+    const [objetivo, setObjetivo] = useState();
+    const [nivel, setNivel] = useState();
+    const [exp, setExp] = useState();
     const navigate = useNavigate();
     const [exists, setExists] = useState(true);
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
 
-    const handleSubmit = (e) =>{
-
-        e.preventDefault();
+    const handleSubmit = () =>{
 
         const {mainteanceCalories, proteinIntake, fatIntake, carbsIntake} = UseCalculations(sexo,edad,altura,peso,porcentaje,objetivo, nivel,exp);
 
-        console.log(mainteanceCalories);
-        console.log(proteinIntake);
-        console.log(fatIntake);
-        console.log(carbsIntake);
-
-        let results = {mainteanceCalories, proteinIntake, fatIntake, carbsIntake};
-
         setExists(false);
 
-        navigate({
-            pathname: '/Results',
-            search: `?mainteanceCalories=${mainteanceCalories}&proteinIntake=${proteinIntake}&fatIntake=${fatIntake}&carbsIntake=${carbsIntake}`,
-          });
+        return {mainteanceCalories, proteinIntake, fatIntake, carbsIntake};
+ 
+        
+
+        // navigate({
+        //     pathname: '/Results',
+        //     search: `?mainteanceCalories=${mainteanceCalories}&proteinIntake=${proteinIntake}&fatIntake=${fatIntake}&carbsIntake=${carbsIntake}`,
+        //   });
         
     }
 
@@ -46,7 +44,7 @@ const Form = () => {
 
        <div>
      
-       {exists && <form className="myform" onSubmit={handleSubmit}>
+        {exists && <form className="myform" onSubmit={handleSubmit}>
 
             <label> Sexo </label>
             
@@ -61,7 +59,7 @@ const Form = () => {
              
 
             >
-
+                <option value="" selected disabled hidden>Selecciona</option>
                 <option value="mujer">Mujer</option>
                 <option value="hombre"> Hombre </option>
 
@@ -137,7 +135,7 @@ const Form = () => {
 
             }}
             >
-
+                <option value="" selected disabled hidden>Selecciona</option>
                 <option value="perder">Perder grasa</option>
                 <option value="ganar"> Ganar masa muscular </option>
                 <option value="ambas"> Ambas </option>
@@ -153,15 +151,35 @@ const Form = () => {
                 setNivel(e.target.value);
 
             }}
+            className="helpSelection"
             >
-                <option value="sed">Asemejado a un trabajo de oficina, con muy poca actividad fuera del ejercicio regular</option>
-                <option value="light"> Asemejado a un trabajo de oficina, pero usualmente realizas actividades como sacar a tu mascota o caminar</option>
-                <option value="mod"> Asemejado a un trabajo de movimiento fisico constante, como por ejemplo un camarero </option>
-                <option value="high"> Asemejado a un trabajo altamente demantante en el aspecto fisico, como obrero de construccion </option>
+                <option value="" selected disabled hidden>Selecciona</option>
+                <option value="sed">Sedentario</option>
+                <option value="light">Normal</option>
+                <option value="mod">Moderado</option>
+                <option value="high">Alto</option>
 
-            </select>
+            </select>    
+            <button className="masInfo">[?]</button>
+            <p className="mensaje">
+
+            Sedentario: Asemejado a un trabajo de oficina, con muy poca actividad fuera del ejercicio regular <br/>
+
+            Normal: Asemejado a un trabajo de oficina, pero usualmente realizas actividades como sacar a tu mascota o caminar <br/>
+
+            Moderado: Asemejado a un trabajo de movimiento fisico constante. Como por ejemplo un camarero <br/>
+
+            Alto: Asemejado a un trabajo altamente demantante en el aspecto fisico, como obrero de construccion <br/>
 
 
+            </p>
+        
+         
+
+            
+              
+
+        
 
             <label> Que nivel de experiencia tienes en el gimnasio?</label>
             
@@ -173,7 +191,7 @@ const Form = () => {
 
             }}
             >
-
+                <option value="" selected disabled hidden>Selecciona</option>
                 <option value="beginner">Principiante</option>
                 <option value="intermediate"> Intermedio </option>
                 <option value="advanced"> Avanzado </option>
@@ -182,20 +200,13 @@ const Form = () => {
 
 
 
-            <button> Consultar </button>
+            <button className="consultButton"> Consultar </button>
 
-            <p> {edad}</p>
-            <p> {objetivo}</p>
-            <p> {peso}</p>
-            <p> {sexo}</p>
-            <p> {altura}</p>
-            <p> {porcentaje}</p>
-
-
+         
 
         </form>}
 
-        {!exists && <Results mainteanceCalories = {handleSubmit.mainteanceCalories} proteinIntake ={handleSubmit.proteinIntake} fatIntake = {handleSubmit.fatIntake} carbsIntake = {handleSubmit.carbsIntake}/>}
+        {!exists && <Results handleSubmit = {handleSubmit}/>}
 
         </div>
 
